@@ -11,7 +11,6 @@ async function validateUser(username, password, done){
         }
     });
     if (!user) {
-        return done(null, false, {message: 'Invalid Username or Password'});
     }
     return done(null, {id: user.id});
 }
@@ -27,7 +26,6 @@ passport.use(
 passport.serializeUser(function(user, done){
     process.nextTick(function(){
         done(null, {
-            id: user.id,
         })
     })
 });
